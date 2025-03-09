@@ -1,6 +1,7 @@
 # Go Pinger
 
-A simple Go application that checks the availability of a remote host using ICMP (ping). It offers easy configuration, a Telegram bot for notifications, and scheduled host status checks using Goroutines.
+A simple Go application that checks the availability of a remote host using ICMP (ping). It offers easy configuration, a
+Telegram bot for notifications, and scheduled host status checks using Goroutines.
 
 ## Features
 
@@ -34,12 +35,14 @@ Before running the project, make sure you have the following installed:
    docker-compose up --build
    ```
 
-   This will build the Docker image and start the container with the necessary environment configuration from the `.env` file.
+   This will build the Docker image and start the container with the necessary environment configuration from the `.env`
+   file.
 
 ## Configuration
 
 - **BOT_TOKEN**: Your bot's token, which can be generated through BotFather on Telegram.
-- **CHAT_ID**: The chat ID where the bot will send notifications. You can get this by starting a conversation with your bot and using the [GetUpdates](https://core.telegram.org/bots/api#getupdates) API.
+- **CHAT_ID**: The chat ID where the bot will send notifications. You can get this by starting a conversation with your
+  bot and using the [GetUpdates](https://core.telegram.org/bots/api#getupdates) API.
 - **PING_INTERVAL**: The interval (in seconds) between each ping check.
 - **HOST**: The hostname that you want to monitor.
 
@@ -96,19 +99,22 @@ docker-compose logs -f
 
 ### Dockerfile and docker-compose.yml
 
-If you want to customize the Docker setup or environment variables, you can modify the `Dockerfile` or `docker-compose.yml` to suit your needs.
+If you want to customize the Docker setup or environment variables, you can modify the `Dockerfile`
+or `docker-compose.yml` to suit your needs.
 
 ### Testing
 
-To test the functionality of your project, ensure you have the correct `.env` file setup, and then run the application locally or inside a Docker container.
+To test the functionality of your project, ensure you have the correct `.env` file setup, and then run the application
+locally or inside a Docker container.
 
 ### Contribution
 
-If you would like to contribute to this project, please fork the repository, create a feature branch, and submit a pull request. Contributions are welcome!
+If you would like to contribute to this project, please fork the repository, create a feature branch, and submit a pull
+request. Contributions are welcome!
 
 ### License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ## Authors
 
@@ -121,4 +127,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-This README now reflects the Docker setup for both running and developing the project. It provides clear steps on how to use Docker for easy setup and configuration, as well as for local development.
+## Feature improvement
+
+- Add few hosts for pinger;
+
+---
+
+This README now reflects the Docker setup for both running and developing the project. It provides clear steps on how to
+use Docker for easy setup and configuration, as well as for local development.

@@ -24,10 +24,11 @@ func Run(cfg *config.Config, log *logrus.Logger) {
 
 	p := pinger.NewPinger(cfg.Host)
 
-	ticker := time.NewTicker(time.Minute) // Check every minute
+	duration := time.Duration(cfg.PingInterval) * time.Second
+	ticker := time.NewTicker(duration)
 	defer ticker.Stop()
 
-	log.Info("Service started, checking host every minute")
+	log.Info("Service started, checking host every ", cfg.PingInterval, " seconds")
 
 	// Run in a goroutine to handle pinging and logging
 	go func() {

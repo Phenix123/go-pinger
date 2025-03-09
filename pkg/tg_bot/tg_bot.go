@@ -26,7 +26,7 @@ func NewTGBot(botToken string, chatID string) *TgBot {
 }
 
 func (b *TgBot) CheckResp(statusCode int) {
-	if statusCode >= 200 {
+	if statusCode >= 400 {
 		err := b.SendNotification("Response status is: " + strconv.Itoa(statusCode))
 		if err != nil {
 			log.Fatal(err)

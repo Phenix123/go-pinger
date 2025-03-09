@@ -1,11 +1,11 @@
 package main
 
 import (
+	"github.com/Phenix123/go-pinger/config"
+	"github.com/Phenix123/go-pinger/internal/pinger"
+	"github.com/Phenix123/go-pinger/pkg/tg_bot"
 	"github.com/joho/godotenv"
 	"log"
-	"siteChecker/config"
-	"siteChecker/internal/pinger"
-	"siteChecker/pkg/tg_bot"
 )
 
 // send get method to host got from .env and send to tg notification if response status is >400

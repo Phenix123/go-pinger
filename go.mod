@@ -1,4 +1,4 @@
-module siteChecker
+module github.com/Phenix123/go-pinger
 
 go 1.24.0
 

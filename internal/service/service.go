@@ -11,9 +11,7 @@ import (
 func Run(cfg *config.Config, log *logrus.Logger) {
 	tgBot := tg_bot.NewTGBot(cfg.BotToken, cfg.ChatID)
 
-	statusCode := pinger.NewPinger(cfg.Host).Ping()
-
-	tgBot.CheckResp(statusCode)
+	p := pinger.NewPinger(cfg.Host)
 
 	ticker := time.NewTicker(time.Minute) // Check every minute
 	defer ticker.Stop()
@@ -23,7 +21,7 @@ func Run(cfg *config.Config, log *logrus.Logger) {
 	for {
 		select {
 		case <-ticker.C:
-			statusCode := pinger.NewPinger(cfg.Host).Ping()
+			statusCode := p.Ping()
 
 			log.WithFields(logrus.Fields{
 				"host":        cfg.Host,

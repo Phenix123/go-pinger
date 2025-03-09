@@ -9,10 +9,20 @@ import (
 type TgBot struct {
 	botToken string
 	chatID   string
+	bot      *tgbotapi.BotAPI
 }
 
 func NewTGBot(botToken string, chatID string) *TgBot {
-	return &TgBot{botToken: botToken, chatID: chatID}
+	bot, err := tgbotapi.NewBotAPI(botToken)
+	if err != nil {
+		panic(err)
+	}
+
+	return &TgBot{
+		botToken: botToken,
+		chatID:   chatID,
+		bot:      bot,
+	}
 }
 
 func (b *TgBot) CheckResp(statusCode int) {
@@ -25,18 +35,11 @@ func (b *TgBot) CheckResp(statusCode int) {
 }
 
 func (b *TgBot) SendNotification(body string) error {
-	token := b.botToken
 	chatID, err := strconv.ParseInt(b.chatID, 10, 64)
 	if err != nil {
 		return err
 	}
-
-	bot, err := tgbotapi.NewBotAPI(token)
-	if err != nil {
-		return err
-	}
-
 	msg := tgbotapi.NewMessage(chatID, body)
-	_, err = bot.Send(msg)
+	_, err = b.bot.Send(msg)
 	return err
 }

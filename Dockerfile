@@ -24,5 +24,8 @@ COPY --from=builder /app/main .
 # Copy .env file (optional)
 COPY .env .env
 
+# Create log directory
+RUN mkdir -p /root/logs
+
 # Run the application
 CMD ["./main"]

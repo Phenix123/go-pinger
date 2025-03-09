@@ -6,3 +6,10 @@ services:
     restart: always
     env_file:
       - .env
+    volumes:
+      - ./logs:/root/logs
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
